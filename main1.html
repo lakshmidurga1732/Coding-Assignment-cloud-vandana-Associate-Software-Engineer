@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey Form</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible"
+          content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+    <title>
+        Build a Survey Form using HTML and CSS
+    </title>
+ 
+    <style>
+ 
+        /* Styling the Body element i.e. Color, 
+        Font, Alignment */ 
+        body {
+            background-color: #6b05c4;
+            font-family: Verdana;
+            text-align: center;
+        }
+ 
+        /* Styling the Form (Color, Padding, Shadow) */
+        form {
+            background-color: #fff;
+            max-width: 500px;
+            margin: 50px auto;
+            padding: 30px 20px;
+            box-shadow: 2px 5px 10px rgba(33, 27, 219, 0.5);
+        }
+ 
+        /* Styling form-control Class */
+        .form-control {
+            text-align: left;
+            margin-bottom: 25px;
+        }
+ 
+        /* Styling form-control Label */ 
+        .form-control label {
+            display: block;
+            margin-bottom: 10px;
+        }
+ 
+        /* Styling form-control input, 
+        select, textarea */
+        .form-control input,
+        .form-control select,
+        .form-control textarea {
+            border: 1px solid #1c49dc;
+            border-radius: 2px;
+            font-family: inherit;
+            padding: 10px;
+            display: block;
+            width: 95%;
+        }
+ 
+        /* Styling form-control Radio 
+        button and Checkbox */
+        .form-control input[type="radio"],
+        .form-control input[type="checkbox"] {
+            display: inline-block;
+            width: auto;
+        }
+ 
+        /* Styling Button */
+        button {
+            background-color: #3213e1;
+            border: 1px solid #777;
+            border-radius: 2px;
+            font-family: inherit;
+            font-size: 21px;
+            display: block;
+            width: 100%;
+            margin-top: 50px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Customer Survey  Form</h1>
+<form id="surveyForm">
+    First Name: <input type="text" name="firstName" required><br><br>
+    Last Name: <input type="text" name="lastName" required><br><br>
+    Date of Birth: <input type="date" name="dob" required><br><br>
+    Country:
+    <select name="country" required>
+        <option value="" disabled selected>Select a country</option>
+        <option value="USA">USA</option>
+        <option value="Canada">Canada</option>
+        <option value="India">India</option>
+        <option value="Uk">Uk</option>
+        <option value="Russia">Russia</option>
+        <option value="Australia">Australia</option>
+        <!-- Add other countries here -->
+    </select><br><br>
+    Gender: 
+    <input type="checkbox" name="gender" value="Male"> Male
+    <input type="checkbox" name="gender" value="Female"> Female
+    <!-- Checkboxes are usually used for multi-select; if only one gender can be selected, use radio buttons instead --><br><br>
+    Profession: <input type="text" name="profession" required><br><br>
+    Email: <input type="email" name="email" required><br><br>
+    Mobile Number: <input type="tel" name="mobile" required><br><br>
+    
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</form>
+
+<script>
+    document.getElementById("surveyForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        
+        let formData = new FormData(event.target);
+        
+        let output = "Form Data:\n\n";
+        
+        for(let [key, value] of formData.entries()) {
+            output += key + ": " + value + "\n";
+        }
+
+        alert(output);
+
+        event.target.reset();
+    });
+</script>
+
+</body>
+</html>
